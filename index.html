@@ -100,7 +100,8 @@
       flex:0 0 auto;
     }
 
-    .brand-logo img{width:100%;height:100%;object-fit:cover;display:none}
+    .brand-logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .brand-logo.has-img span{display:none}
     .brand-logo span{font-size:24px;font-weight:900;letter-spacing:-1px;color:#fff}
     .brand-title{line-height:1}
     .brand-title h1{font-size:25px;letter-spacing:.5px;font-weight:900;text-transform:uppercase}
@@ -411,7 +412,8 @@
       overflow:hidden;
     }
 
-    .app-logo img{width:100%;height:100%;object-fit:cover;display:none}
+    .app-logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .app-logo.has-img span{display:none}
     .app-logo span{font-size:35px;filter:drop-shadow(0 7px 12px rgba(0,0,0,.25))}
 
     .number{
@@ -527,7 +529,7 @@
     <header class="topbar">
       <div class="brand">
         <div class="brand-logo">
-         <img src="https://github.com/Lichaaos23/zyronstreamapps/blob/main/img/zyron.png?raw=true" alt="Zyron Stream"> 
+         <img src="https://raw.githubusercontent.com/Lichaaos23/zyronstreamapps/main/img/zyron.png" alt="Zyron Stream" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none'; this.parentElement.classList.remove('has-img')"> 
           <span>AV</span>
         </div>
         <div class="brand-title">
@@ -663,7 +665,7 @@
     </section>
 
     <div class="note">
-      Para poner tus logos: subí las imágenes a la misma carpeta del HTML y reemplazá los comentarios <strong>&lt;img src="logo...png"&gt;</strong>. Para cambiar el archivo de descarga, editá <strong>data-file="nombre.apk"</strong> en cada tarjeta.
+      Para poner tus logos: subí las imágenes a la misma carpeta del HTML y usá una línea como <strong>&lt;img src="logo-nextflix.png" alt="NEXT-FLIX" onload="this.parentElement.classList.add('has-img')"&gt;</strong>. Para cambiar el archivo de descarga, editá <strong>data-file="nombre.apk"</strong> en cada tarjeta.
     </div>
 
     <footer>© 2026 APPVAULT — Diseño editable en HTML</footer>
