@@ -406,15 +406,33 @@
       display:grid;
       place-items:center;
       flex:0 0 auto;
-      background:linear-gradient(135deg,var(--c1),var(--c2));
-      border:1px solid rgba(255,255,255,.26);
-      box-shadow:0 18px 36px var(--shadowColor);
+      background:rgba(255,255,255,.045);
+      border:1.5px dashed rgba(255,255,255,.30);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.04), 0 18px 36px var(--shadowColor);
       overflow:hidden;
+      position:relative;
     }
 
-    .app-logo img{width:100%;height:100%;object-fit:cover;display:block}
-    .app-logo.has-img span{display:none}
-    .app-logo span{font-size:35px;filter:drop-shadow(0 7px 12px rgba(0,0,0,.25))}
+    .app-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .app-logo:empty::after{
+      content:"";
+      width:30px;
+      height:30px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.20);
+      background:rgba(255,255,255,.05);
+    }
+
+    .app-logo.has-img{
+      border-style:solid;
+      background:transparent;
+    }
 
     .number{
       width:36px;height:36px;
@@ -597,9 +615,11 @@
     </div>
 
     <section class="apps-grid">
-      <article class="app-card" style="--c1:#00e0ff;--c2:#7c5cff;--glow:rgba(0,224,255,.30);--shadowColor:rgba(0,224,255,.22)" data-name="NEXT-FLIX" data-icon="🎬" data-file="NEXT-FLIX_25__2_.apk">
+      <article class="app-card" style="--c1:#00e0ff;--c2:#7c5cff;--glow:rgba(0,224,255,.30);--shadowColor:rgba(0,224,255,.22)" data-name="NEXT-FLIX" data-icon="📦" data-file="NEXT-FLIX_25__2_.apk">
         <div class="card-inner">
-          <div class="app-top"><div class="app-logo"><img src="https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456"> <span>🎬</span></div><div class="number">01</div></div>
+          <div class="app-top"><div class="app-logo"><!-- Para cargar tu logo de NEXT-FLIX: pegá esta línea y cambiá el archivo:
+              <img src="logo-nextflix.png" alt="NEXT-FLIX" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+            --></div><div class="number">01</div></div>
           <h3 class="app-name">NEXT-FLIX</h3>
           <div class="app-category">Streaming / Películas</div>
           <p class="app-desc">Acceso rápido a contenido de entretenimiento con una presentación limpia, moderna y fácil de usar.</p>
@@ -608,9 +628,11 @@
         </div>
       </article>
 
-      <article class="app-card" style="--c1:#ff4d8d;--c2:#ffb86b;--glow:rgba(255,77,141,.28);--shadowColor:rgba(255,77,141,.22)" data-name="CINEFLIX" data-icon="🎭" data-file="CINEFLIX.apk">
+      <article class="app-card" style="--c1:#ff4d8d;--c2:#ffb86b;--glow:rgba(255,77,141,.28);--shadowColor:rgba(255,77,141,.22)" data-name="CINEFLIX" data-icon="📦" data-file="CINEFLIX.apk">
         <div class="card-inner">
-          <div class="app-top"><div class="app-logo"><!-- <img src="logo-cineflix.png" alt="CINEFLIX"> --><span>🎭</span></div><div class="number">02</div></div>
+          <div class="app-top"><div class="app-logo"><!-- Para cargar tu logo de CINEFLIX: pegá esta línea y cambiá el archivo:
+              <img src="logo-cineflix.png" alt="CINEFLIX" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+            --></div><div class="number">02</div></div>
           <h3 class="app-name">CINEFLIX</h3>
           <div class="app-category">Cine / Estrenos</div>
           <p class="app-desc">Tarjeta visual para una app de películas, con espacio listo para insertar el logo oficial.</p>
@@ -619,9 +641,11 @@
         </div>
       </article>
 
-      <article class="app-card" style="--c1:#a855f7;--c2:#22d3ee;--glow:rgba(168,85,247,.30);--shadowColor:rgba(168,85,247,.22)" data-name="ZYRON 4K" data-icon="⚡" data-file="ZYRON-4K.apk">
+      <article class="app-card" style="--c1:#a855f7;--c2:#22d3ee;--glow:rgba(168,85,247,.30);--shadowColor:rgba(168,85,247,.22)" data-name="ZYRON 4K" data-icon="📦" data-file="ZYRON-4K.apk">
         <div class="card-inner">
-          <div class="app-top"><div class="app-logo"><!-- <img src="logo-zyron4k.png" alt="ZYRON 4K"> --><span>⚡</span></div><div class="number">03</div></div>
+          <div class="app-top"><div class="app-logo"><!-- Para cargar tu logo de ZYRON 4K: pegá esta línea y cambiá el archivo:
+              <img src="logo-zyron4k.png" alt="ZYRON 4K" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+            --></div><div class="number">03</div></div>
           <h3 class="app-name">ZYRON 4K</h3>
           <div class="app-category">Ultra HD / Streaming</div>
           <p class="app-desc">Diseño premium para destacar una app enfocada en contenido de alta resolución.</p>
@@ -630,9 +654,11 @@
         </div>
       </article>
 
-      <article class="app-card" style="--c1:#2dd4bf;--c2:#84cc16;--glow:rgba(45,212,191,.28);--shadowColor:rgba(45,212,191,.20)" data-name="LIKE TV" data-icon="📺" data-file="LIKE-TV.apk">
+      <article class="app-card" style="--c1:#2dd4bf;--c2:#84cc16;--glow:rgba(45,212,191,.28);--shadowColor:rgba(45,212,191,.20)" data-name="LIKE TV" data-icon="📦" data-file="LIKE-TV.apk">
         <div class="card-inner">
-          <div class="app-top"><div class="app-logo"><!-- <img src="logo-liketv.png" alt="LIKE TV"> --><span>📺</span></div><div class="number">04</div></div>
+          <div class="app-top"><div class="app-logo"><!-- Para cargar tu logo de LIKE TV: pegá esta línea y cambiá el archivo:
+              <img src="logo-liketv.png" alt="LIKE TV" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+            --></div><div class="number">04</div></div>
           <h3 class="app-name">LIKE TV</h3>
           <div class="app-category">TV en vivo / Canales</div>
           <p class="app-desc">Bloque pensado para apps de canales, televisión en vivo y entretenimiento diario.</p>
@@ -641,9 +667,11 @@
         </div>
       </article>
 
-      <article class="app-card" style="--c1:#facc15;--c2:#fb7185;--glow:rgba(250,204,21,.24);--shadowColor:rgba(250,204,21,.18)" data-name="SPOTIFY" data-icon="🎵" data-file="SPOTIFY.apk">
+      <article class="app-card" style="--c1:#facc15;--c2:#fb7185;--glow:rgba(250,204,21,.24);--shadowColor:rgba(250,204,21,.18)" data-name="SPOTIFY" data-icon="📦" data-file="SPOTIFY.apk">
         <div class="card-inner">
-          <div class="app-top"><div class="app-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/1280px-Spotify_App_Logo.svg.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="SPOTIFY"><span>🎵</span></div><div class="number">05</div></div>
+          <div class="app-top"><div class="app-logo"><!-- Para cargar tu logo de SPOTIFY: pegá esta línea y cambiá el archivo:
+              <img src="logo-spotify.png" alt="SPOTIFY" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+            --></div><div class="number">05</div></div>
           <h3 class="app-name">SPOTIFY</h3>
           <div class="app-category">Música / Podcasts</div>
           <p class="app-desc">Tarjeta limpia para una app musical, con ícono reemplazable por imagen PNG o JPG.</p>
@@ -652,9 +680,11 @@
         </div>
       </article>
 
-      <article class="app-card" style="--c1:#60a5fa;--c2:#f472b6;--glow:rgba(96,165,250,.28);--shadowColor:rgba(96,165,250,.20)" data-name="ZYRONTUBE" data-icon="▶️" data-file="ZYRONTUBE.apk">
+      <article class="app-card" style="--c1:#60a5fa;--c2:#f472b6;--glow:rgba(96,165,250,.28);--shadowColor:rgba(96,165,250,.20)" data-name="ZYRONTUBE" data-icon="📦" data-file="ZYRONTUBE.apk">
         <div class="card-inner">
-          <div class="app-top"><div class="app-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/3840px-YouTube_full-color_icon_%282017%29.svg.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="ZYRONTUBE"><span>▶️</span></div><div class="number">06</div></div>
+          <div class="app-top"><div class="app-logo"><!-- Para cargar tu logo de ZYRONTUBE: pegá esta línea y cambiá el archivo:
+              <img src="logo-zyrontube.png" alt="ZYRONTUBE" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+            --></div><div class="number">06</div></div>
           <h3 class="app-name">ZYRONTUBE</h3>
           <div class="app-category">Video / Reproductor</div>
           <p class="app-desc">Diseño para app de video con estructura igual a las demás tarjetas y botón de descarga.</p>
@@ -665,7 +695,7 @@
     </section>
 
     <div class="note">
-      Para poner tus logos: subí las imágenes a la misma carpeta del HTML y usá una línea como <strong>&lt;img src="logo-nextflix.png" alt="NEXT-FLIX" onload="this.parentElement.classList.add('has-img')"&gt;</strong>. Para cambiar el archivo de descarga, editá <strong>data-file="nombre.apk"</strong> en cada tarjeta.
+      Los espacios de logo de cada app quedaron vacíos. Para cargar una imagen, subí el archivo PNG/JPG a la misma carpeta del HTML y pegá dentro del bloque <strong>app-logo</strong> la línea de imagen que ya dejé comentada en cada tarjeta.
     </div>
 
     <footer>© 2026 APPVAULT — Diseño editable en HTML</footer>
