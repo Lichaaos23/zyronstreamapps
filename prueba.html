@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reproductor IPTV</title>
+
+  <!-- HLS.js -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <style>
+    body{
+      margin:0;
+      background:#111;
+      font-family:Arial, sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      color:white;
+    }
+
+    .player-container{
+      width:90%;
+      max-width:900px;
+      background:#1b1b1b;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .header{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      padding:15px;
+      background:#222;
+    }
+
+    .header img{
+      width:60px;
+      height:60px;
+      object-fit:contain;
+      background:white;
+      border-radius:10px;
+      padding:5px;
+    }
+
+    .header h1{
+      font-size:24px;
+      margin:0;
+    }
+
+    video{
+      width:100%;
+      height:auto;
+      background:black;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="player-container">
+    
+    <div class="header">
+      <img src="https://solparaguay.qvixprimary.com/assets/resources/img/channels/espn_660a27baf43344968326c178550f1f3f.png" alt="ESPN 1">
+      <h1>ESPN 1</h1>
+    </div>
+
+    <video id="video" controls autoplay></video>
+
+  </div>
+
+  <script>
+    const video = document.getElementById('video');
+
+    const videoSrc = 'http://45.188.229.33:8000/play/a1ac/index.m3u8?hls';
+
+    if (Hls.isSupported()) {
+
+      const hls = new Hls();
+
+      hls.loadSource(videoSrc);
+
+      hls.attachMedia(video);
+
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+
+    } 
+    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+
+      video.src = videoSrc;
+
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+
+    }
+  </script>
+
+</body>
+</html>
