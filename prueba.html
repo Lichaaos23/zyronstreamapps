@@ -3,55 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Player HLS</title>
+<title>TV Player</title>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
 <style>
-    body{
-        margin:0;
-        background:#111;
-        color:white;
-        font-family:Arial;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        height:100vh;
-    }
+body{
+    margin:0;
+    background:#000;
+    font-family:Arial;
+    color:white;
+}
 
-    .player{
-        width:90%;
-        max-width:900px;
-        background:#1c1c1c;
-        border-radius:15px;
-        overflow:hidden;
-    }
+.player{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    margin-top:30px;
+    background:#111;
+    border-radius:15px;
+    overflow:hidden;
+}
 
-    .top{
-        display:flex;
-        align-items:center;
-        gap:15px;
-        padding:15px;
-        background:#222;
-    }
+.top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+    background:#1d1d1d;
+}
 
-    .top img{
-        width:60px;
-        background:white;
-        border-radius:10px;
-        padding:5px;
-    }
+.top img{
+    width:60px;
+    background:white;
+    border-radius:10px;
+    padding:5px;
+}
 
-    video{
-        width:100%;
-        background:black;
-    }
+video{
+    width:100%;
+    background:black;
+}
 
-    #status{
-        padding:10px;
-        color:#00ff99;
-        font-size:14px;
-    }
+.status{
+    padding:10px;
+}
 </style>
 </head>
 <body>
@@ -65,51 +61,51 @@
 
     <video id="video" controls autoplay></video>
 
-    <div id="status">Cargando canal...</div>
+    <div class="status" id="status">Conectando...</div>
 
 </div>
 
 <script>
 
 const video = document.getElementById("video");
-const statusText = document.getElementById("status");
+const status = document.getElementById("status");
 
-const stream = "http://45.188.229.33:8000/play/a1ac/index.m3u8?hls";
+const original =
+'http://45.188.229.33:8000/play/a1ac/index.m3u8?hls';
+
+/*
+PROXY
+*/
+
+const stream =
+'https://corsproxy.io/?' + encodeURIComponent(original);
 
 if(Hls.isSupported()){
 
-    const hls = new Hls({
-        enableWorker: true,
-        lowLatencyMode: true
-    });
+    const hls = new Hls();
 
     hls.loadSource(stream);
+
     hls.attachMedia(video);
 
     hls.on(Hls.Events.MANIFEST_PARSED, function() {
-        statusText.innerHTML = "Canal conectado";
+
+        status.innerHTML = "Canal conectado";
+
         video.play();
+
     });
 
     hls.on(Hls.Events.ERROR, function(event, data) {
+
         console.log(data);
 
-        statusText.innerHTML =
-            "Error: " + data.type + " / " + data.details;
+        status.innerHTML =
+        "Error: " + data.details;
+
     });
 
-}else if(video.canPlayType('application/vnd.apple.mpegurl')){
-
-    video.src = stream;
-
-    video.addEventListener('loadedmetadata', function() {
-        video.play();
-    });
-
-}else{
-    statusText.innerHTML = "Tu navegador no soporta HLS";
 }
-
 </script>
 
 </body>
