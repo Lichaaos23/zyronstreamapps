@@ -33,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE TEXTURE ── */
     body::before {
       content: "";
       position: fixed;
@@ -44,7 +43,6 @@
       opacity: .5;
     }
 
-    /* ── AMBIENT GLOW ── */
     .glow-top {
       position: fixed;
       top: -200px; left: 50%;
@@ -55,7 +53,6 @@
       z-index: 0;
     }
 
-    /* ── NAV ── */
     nav {
       position: relative;
       z-index: 10;
@@ -126,7 +123,6 @@
       50% { opacity: .4; }
     }
 
-    /* ── HERO ── */
     .hero {
       position: relative;
       z-index: 1;
@@ -202,7 +198,6 @@
       letter-spacing: .3px;
     }
 
-    /* ── MAIN CONTENT ── */
     .main {
       position: relative;
       z-index: 1;
@@ -211,7 +206,6 @@
       padding: 0 24px 60px;
     }
 
-    /* ── SECTION HEADER ── */
     .section-header {
       display: flex;
       align-items: center;
@@ -247,7 +241,6 @@
       letter-spacing: .5px;
     }
 
-    /* ── APPS GRID ── */
     .apps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -279,7 +272,6 @@
     .app-card:nth-child(8) { animation-delay: .4s; }
     .app-card:nth-child(9) { animation-delay: .45s; }
 
-    /* ── WHATSAPP BAR ── */
     .wa-bar {
       position: relative;
       z-index: 1;
@@ -352,7 +344,6 @@
     }
     .app-card:hover::before { opacity: 1; }
 
-    /* accent line on top */
     .app-card::after {
       content: "";
       position: absolute;
@@ -363,7 +354,6 @@
       opacity: .8;
     }
 
-    /* ── CARD TOP ROW ── */
     .card-top {
       display: flex;
       align-items: flex-start;
@@ -397,7 +387,6 @@
       margin-top: -4px;
     }
 
-    /* ── CARD BODY ── */
     .app-name {
       font-family: 'Syne', sans-serif;
       font-size: 22px;
@@ -440,7 +429,33 @@
       color: rgba(255,255,255,.7);
     }
 
-    /* ── DOWNLOAD BUTTON ── */
+    /* Downloader code box */
+    .downloader-code {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .5px;
+    }
+    .downloader-code span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 2px;
+      color: var(--cyan);
+    }
+    .downloader-code em {
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
     .download-btn {
       width: 100%;
       border: none;
@@ -461,6 +476,7 @@
       transition: filter .2s ease, transform .15s ease, box-shadow .2s ease;
       box-shadow: 0 10px 28px var(--card-shadow);
       margin-top: auto;
+      text-decoration: none;
     }
     .download-btn:hover {
       filter: brightness(1.12);
@@ -474,7 +490,6 @@
       flex: 0 0 auto;
     }
 
-    /* ── FOOTER ── */
     footer {
       position: relative;
       z-index: 1;
@@ -486,7 +501,6 @@
       letter-spacing: .5px;
     }
 
-    /* ── MODAL ── */
     .modal {
       position: fixed;
       inset: 0;
@@ -578,7 +592,6 @@
     }
     .modal-close:hover { filter: brightness(.9); }
 
-    /* ── RESPONSIVE ── */
     @media (max-width:900px) {
       .apps-grid { grid-template-columns: repeat(2,1fr); }
     }
@@ -616,14 +629,9 @@
        alt="Zyron Stream Hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    
-    
     <p class="hero-sub">Instalá, disfrutá y contactanos para tu usuario de prueba gratis</p>
   </div>
 </section>
-   
-  </a>
-</div>
 
 <!-- MAIN -->
 <main class="main">
@@ -639,14 +647,14 @@
   <!-- APPS GRID -->
   <div class="apps-grid">
 
-    <!-- APP TV1 -->
+    <!-- ZYRON 4K -->
     <article class="app-card"
       style="--card-glow:rgba(0,229,255,.18);--card-accent:linear-gradient(90deg,#00e5ff,#00b8d9);--card-shadow:rgba(0,229,255,.25)"
-      data-name="APP TV1" data-file="APP-TV1.apk" data-icon="📺">
+      data-name="ZYRON 4K" data-icon="📺">
       <div class="card-top">
         <div class="app-logo">
-          <img src="https://raw.githubusercontent.com/Lichaaos23/zyronstreamapps/main/img/tv1.png"
-               alt="APP TV1" onerror="this.parentElement.textContent='📺'">
+          <img src="https://github.com/Lichaaos23/zyronstreamapps/blob/main/img/zayron4k.png?raw=true"
+               alt="ZYRON 4K" onerror="this.parentElement.textContent='📺'">
         </div>
         <span class="app-num">01</span>
       </div>
@@ -661,28 +669,32 @@
         <span class="tag">+50MB</span>
         <span class="tag">Fibra</span>
       </div>
-      <button class="download-btn" onclick="downloadApp(this)">
+      <div class="downloader-code">
+        <em>Cód. Downloader</em>
+        <span>9276584</span>
+      </div>
+      <a class="download-btn" href="http://aftv.news/9276584" target="_blank" rel="noopener">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
         </svg>
         DESCARGAR APK
-      </button>
+      </a>
     </article>
 
-    <!-- APP TV2 -->
+    <!-- LIKE TV -->
     <article class="app-card"
       style="--card-glow:rgba(255,208,96,.15);--card-accent:linear-gradient(90deg,#ffd060,#ffa822);--card-shadow:rgba(255,208,96,.22)"
-      data-name="APP TV2" data-file="APP-TV2.apk" data-icon="📡">
+      data-name="LIKE TV" data-icon="📡">
       <div class="card-top">
         <div class="app-logo">
-          <img src="https://raw.githubusercontent.com/Lichaaos23/zyronstreamapps/main/img/tv2.png"
-               alt="APP TV2" onerror="this.parentElement.textContent='📡'">
+          <img src="https://github.com/Lichaaos23/zyronstreamapps/blob/main/img/liketv.png?raw=true"
+               alt="LIKE TV" onerror="this.parentElement.textContent='📡'">
         </div>
         <span class="app-num">02</span>
       </div>
       <div>
-        <h3 class="app-name">LIKE TV2</h3>
-        <p class="app-cat">TV en vivo </p>
+        <h3 class="app-name">LIKE TV</h3>
+        <p class="app-cat">TV en vivo</p>
       </div>
       <p class="app-desc">App Tv en Vivo, Peliculas y series</p>
       <div class="tags">
@@ -691,28 +703,65 @@
         <span class="tag">Live TV</span>
         <span class="tag">Móvil</span>
       </div>
-      <button class="download-btn" onclick="downloadApp(this)">
+      <div class="downloader-code">
+        <em>Cód. Downloader</em>
+        <span>4791224</span>
+      </div>
+      <a class="download-btn" href="http://aftv.news/4791224" target="_blank" rel="noopener">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
         </svg>
         DESCARGAR APK
-      </button>
+      </a>
     </article>
 
-    <!-- APP PELICULAS Y SERIES -->
+    <!-- FLUJO TV -->
     <article class="app-card"
       style="--card-glow:rgba(255,79,110,.18);--card-accent:linear-gradient(90deg,#ff4f6e,#ff2d55);--card-shadow:rgba(255,79,110,.25)"
-      data-name="APP PELÍCULAS" data-file="APP-PELICULAS.apk" data-icon="🎬">
+      data-name="FLUJO TV" data-icon="📡">
       <div class="card-top">
         <div class="app-logo">
-          <img src="https://raw.githubusercontent.com/Lichaaos23/zyronstreamapps/main/img/peliculas.png"
-               alt="Películas" onerror="this.parentElement.textContent='🎬'">
+          <img src="https://github.com/Lichaaos23/zyronstreamapps/blob/main/img/fujotv.png?raw=true"
+               alt="FLUJO TV" onerror="this.parentElement.textContent='📡'">
         </div>
         <span class="app-num">03</span>
       </div>
       <div>
+        <h3 class="app-name">FLUJO TV</h3>
+        <p class="app-cat">TV en vivo · Streaming</p>
+      </div>
+      <p class="app-desc">Contenido fluido y estable en alta definición. TV en vivo, películas y series sin interrupciones.</p>
+      <div class="tags">
+        <span class="tag">HD</span>
+        <span class="tag">Live TV</span>
+        <span class="tag">Android</span>
+      </div>
+      <div class="downloader-code">
+        <em>Cód. Downloader</em>
+        <span>9249124</span>
+      </div>
+      <a class="download-btn" href="http://aftv.news/9249124" target="_blank" rel="noopener">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        DESCARGAR APK
+      </a>
+    </article>
+
+    <!-- CINEFLIX -->
+    <article class="app-card"
+      style="--card-glow:rgba(162,89,255,.20);--card-accent:linear-gradient(90deg,#a259ff,#7c3aed);--card-shadow:rgba(162,89,255,.28)"
+      data-name="CINEFLIX" data-icon="🎬">
+      <div class="card-top">
+        <div class="app-logo">
+          <img src="https://github.com/Lichaaos23/zyronstreamapps/blob/main/img/cineflix.png?raw=true"
+               alt="CINEFLIX" onerror="this.parentElement.textContent='🎬'">
+        </div>
+        <span class="app-num">04</span>
+      </div>
+      <div>
         <h3 class="app-name">CINEFLIX</h3>
-        <p class="app-cat">Peliculas y Series</p>
+        <p class="app-cat">Películas y Series</p>
       </div>
       <p class="app-desc">Requiere conexión de +20MB para funcionar de forma fluida. Miles de títulos en HD y 4K bajo demanda.</p>
       <div class="tags">
@@ -721,24 +770,28 @@
         <span class="tag">+20MB</span>
         <span class="tag">Series</span>
       </div>
-      <button class="download-btn" onclick="downloadApp(this)">
+      <div class="downloader-code">
+        <em>Cód. Downloader</em>
+        <span>3088362</span>
+      </div>
+      <a class="download-btn" href="https://aftv.news/3088362" target="_blank" rel="noopener">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
         </svg>
         DESCARGAR APK
-      </button>
+      </a>
     </article>
 
     <!-- NEXT-FLIX -->
     <article class="app-card"
-      style="--card-glow:rgba(162,89,255,.20);--card-accent:linear-gradient(90deg,#a259ff,#7c3aed);--card-shadow:rgba(162,89,255,.28)"
-      data-name="NEXT-FLIX" data-file="NEXT-FLIX_25__2_.apk" data-icon="📦">
+      style="--card-glow:rgba(229,9,20,.20);--card-accent:linear-gradient(90deg,#e50914,#b81d24);--card-shadow:rgba(229,9,20,.28)"
+      data-name="NEXT-FLIX" data-icon="📦">
       <div class="card-top">
         <div class="app-logo">
           <img src="https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=200"
                alt="NEXT-FLIX" onerror="this.parentElement.textContent='📦'">
         </div>
-        <span class="app-num">04</span>
+        <span class="app-num">05</span>
       </div>
       <div>
         <h3 class="app-name">NEXT-FLIX</h3>
@@ -750,24 +803,94 @@
         <span class="tag">4K</span>
         <span class="tag">Android</span>
       </div>
-      <button class="download-btn" onclick="downloadApp(this)">
+      <div class="downloader-code">
+        <em>Cód. Downloader</em>
+        <span>4991989</span>
+      </div>
+      <a class="download-btn" href="https://aftv.news/4991989" target="_blank" rel="noopener">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
         </svg>
         DESCARGAR APK
+      </a>
+    </article>
+
+    <!-- FLOW -->
+    <article class="app-card"
+      style="--card-glow:rgba(0,120,212,.20);--card-accent:linear-gradient(90deg,#0078d4,#005a9e);--card-shadow:rgba(0,120,212,.28)"
+      data-name="FLOW" data-icon="📺">
+      <div class="card-top">
+        <div class="app-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Flow_2021.jpg"
+               alt="FLOW" onerror="this.parentElement.textContent='📺'">
+        </div>
+        <span class="app-num">06</span>
+      </div>
+      <div>
+        <h3 class="app-name">FLOW</h3>
+        <p class="app-cat">Streaming · Cable Digital</p>
+      </div>
+      <p class="app-desc">La plataforma de Flow en tu dispositivo Android. TV en vivo, películas y series en un solo lugar.</p>
+      <div class="tags">
+        <span class="tag">HD</span>
+        <span class="tag">Live TV</span>
+        <span class="tag">Android</span>
+      </div>
+      <div class="downloader-code">
+        <em>Cód. Downloader</em>
+        <span>— Próximamente —</span>
+      </div>
+      <button class="download-btn" style="opacity:.6;cursor:not-allowed;" disabled>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        PRÓXIMAMENTE
+      </button>
+    </article>
+
+    <!-- CANVA PRO -->
+    <article class="app-card"
+      style="--card-glow:rgba(0,195,168,.18);--card-accent:linear-gradient(90deg,#00c3a8,#00a896);--card-shadow:rgba(0,195,168,.25)"
+      data-name="CANVA PRO" data-icon="🎨">
+      <div class="card-top">
+        <div class="app-logo">
+          <img src="https://edudigital.pro/wp-content/uploads/2024/03/CANVAPRO.png"
+               alt="CANVA PRO" onerror="this.parentElement.textContent='🎨'">
+        </div>
+        <span class="app-num">07</span>
+      </div>
+      <div>
+        <h3 class="app-name">CANVA PRO</h3>
+        <p class="app-cat">Diseño · Creatividad</p>
+      </div>
+      <p class="app-desc">Diseñá gráficos, presentaciones y contenido visual de forma fácil y profesional desde tu dispositivo.</p>
+      <div class="tags">
+        <span class="tag">Diseño</span>
+        <span class="tag">Pro</span>
+        <span class="tag">Android</span>
+      </div>
+      <div class="downloader-code">
+        <em>Cód. Downloader</em>
+        <span>— Próximamente —</span>
+      </div>
+      <button class="download-btn" style="opacity:.6;cursor:not-allowed;" disabled>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        PRÓXIMAMENTE
       </button>
     </article>
 
     <!-- SPOTIFY -->
     <article class="app-card"
       style="--card-glow:rgba(0,232,155,.18);--card-accent:linear-gradient(90deg,#00e89b,#1db954);--card-shadow:rgba(0,232,155,.25)"
-      data-name="SPOTIFY" data-file="SPOTIFY.apk" data-icon="🎵">
+      data-name="SPOTIFY" data-icon="🎵">
       <div class="card-top">
         <div class="app-logo">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvdiEukmCtI1z9wSX0gXANQiaOOH3VdNUh2Q&s"
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv-ojvgheqFF4jc5EM9MYcOkULjVY3oG2hzw&s"
                alt="SPOTIFY" onerror="this.parentElement.textContent='🎵'">
         </div>
-        <span class="app-num">05</span>
+        <span class="app-num">08</span>
       </div>
       <div>
         <h3 class="app-name">SPOTIFY</h3>
@@ -779,27 +902,31 @@
         <span class="tag">Audio</span>
         <span class="tag">Podcast</span>
       </div>
-      <button class="download-btn" onclick="downloadApp(this)">
+      <div class="downloader-code">
+        <em>Cód. Downloader</em>
+        <span>— Próximamente —</span>
+      </div>
+      <button class="download-btn" style="opacity:.6;cursor:not-allowed;" disabled>
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
         </svg>
-        DESCARGAR APK
+        PRÓXIMAMENTE
       </button>
     </article>
 
-    <!-- ZYRONTUBE -->
+    <!-- ZYRON TUBE -->
     <article class="app-card"
       style="--card-glow:rgba(255,140,66,.17);--card-accent:linear-gradient(90deg,#ff8c42,#ff6b1a);--card-shadow:rgba(255,140,66,.25)"
-      data-name="ZYRONTUBE" data-file="ZYRONTUBE.apk" data-icon="▶️">
+      data-name="ZYRON TUBE" data-icon="▶️">
       <div class="card-top">
         <div class="app-logo">
-          <img src="https://logos-marcas.com/wp-content/uploads/2020/04/YouTube-S%C3%ADmbolo.jpg"
-               alt="ZYRONTUBE" onerror="this.parentElement.textContent='▶️'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/YouTube_Premium_logo.svg/1280px-YouTube_Premium_logo.svg.png"
+               alt="ZYRON TUBE" onerror="this.parentElement.textContent='▶️'">
         </div>
-        <span class="app-num">06</span>
+        <span class="app-num">09</span>
       </div>
       <div>
-        <h3 class="app-name">ZYRONTUBE</h3>
+        <h3 class="app-name">ZYRON TUBE</h3>
         <p class="app-cat">Video · Reproductor 8K</p>
       </div>
       <p class="app-desc">Reproductor de video avanzado compatible hasta 8K. Interfaz limpia y rápida, sin publicidad invasiva.</p>
@@ -808,92 +935,15 @@
         <span class="tag">8K</span>
         <span class="tag">Player</span>
       </div>
-      <button class="download-btn" onclick="downloadApp(this)">
+      <div class="downloader-code">
+        <em>Cód. Downloader</em>
+        <span>— Próximamente —</span>
+      </div>
+      <button class="download-btn" style="opacity:.6;cursor:not-allowed;" disabled>
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
         </svg>
-        DESCARGAR APK
-      </button>
-    </article>
-
-    <!-- APP 7 -->
-    <article class="app-card"
-      style="--card-glow:rgba(255,105,180,.18);--card-accent:linear-gradient(90deg,#ff69b4,#e040fb);--card-shadow:rgba(255,105,180,.25)"
-      data-name="APP 7" data-file="APP7.apk" data-icon="🌐">
-      <div class="card-top">
-        <div class="app-logo">
-          <img src="" alt="APP 7" onerror="this.parentElement.textContent=\'🌐\'">
-        </div>
-        <span class="app-num">07</span>
-      </div>
-      <div>
-        <h3 class="app-name">APP 7</h3>
-        <p class="app-cat">Categoría · Descripción</p>
-      </div>
-      <p class="app-desc">Descripción de la app. Reemplazá el nombre, ícono y archivo APK con los datos reales.</p>
-      <div class="tags">
-        <span class="tag">Android</span>
-        <span class="tag">APK</span>
-      </div>
-      <button class="download-btn" onclick="downloadApp(this)">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
-        </svg>
-        DESCARGAR APK
-      </button>
-    </article>
-
-    <!-- APP 8 -->
-    <article class="app-card"
-      style="--card-glow:rgba(64,224,208,.18);--card-accent:linear-gradient(90deg,#40e0d0,#00bcd4);--card-shadow:rgba(64,224,208,.25)"
-      data-name="APP 8" data-file="APP8.apk" data-icon="⚡">
-      <div class="card-top">
-        <div class="app-logo">
-          <img src="" alt="APP 8" onerror="this.parentElement.textContent=\'⚡\'">
-        </div>
-        <span class="app-num">08</span>
-      </div>
-      <div>
-        <h3 class="app-name">APP 8</h3>
-        <p class="app-cat">Categoría · Descripción</p>
-      </div>
-      <p class="app-desc">Descripción de la app. Reemplazá el nombre, ícono y archivo APK con los datos reales.</p>
-      <div class="tags">
-        <span class="tag">Android</span>
-        <span class="tag">APK</span>
-      </div>
-      <button class="download-btn" onclick="downloadApp(this)">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
-        </svg>
-        DESCARGAR APK
-      </button>
-    </article>
-
-    <!-- APP 9 -->
-    <article class="app-card"
-      style="--card-glow:rgba(255,165,0,.18);--card-accent:linear-gradient(90deg,#ff9500,#ff6000);--card-shadow:rgba(255,140,0,.25)"
-      data-name="APP 9" data-file="APP9.apk" data-icon="🔥">
-      <div class="card-top">
-        <div class="app-logo">
-          <img src="" alt="APP 9" onerror="this.parentElement.textContent='🔥'">
-        </div>
-        <span class="app-num">09</span>
-      </div>
-      <div>
-        <h3 class="app-name">APP 9</h3>
-        <p class="app-cat">Categoría · Descripción</p>
-      </div>
-      <p class="app-desc">Descripción de la app. Reemplazá el nombre, ícono y archivo APK con los datos reales.</p>
-      <div class="tags">
-        <span class="tag">Android</span>
-        <span class="tag">APK</span>
-      </div>
-      <button class="download-btn" onclick="downloadApp(this)">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
-        </svg>
-        DESCARGAR APK
+        PRÓXIMAMENTE
       </button>
     </article>
 
@@ -903,59 +953,9 @@
 
 <footer>© 2026 ZYRON STREAM — Todos los derechos reservados</footer>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <div class="modal-logo" id="modalLogo">📦</div>
-    <div class="modal-title" id="modalTitle">DESCARGANDO</div>
-    <p class="modal-sub" id="modalSub">Preparando el archivo APK...</p>
-    <div class="bar-track"><span class="bar-fill" id="barFill"></span></div>
-    <div class="modal-pct" id="modalPct">0%</div>
-    <button class="modal-close" id="modalClose" onclick="closeModal()">Cerrar</button>
-  </div>
-</div>
-
 <script>
-  function downloadApp(btn) {
-    const card = btn.closest('.app-card');
-    const name = card.dataset.name || 'APP';
-    const icon = card.dataset.icon || '📦';
-    const file = card.dataset.file || '';
-
-    document.getElementById('modalLogo').textContent = icon;
-    document.getElementById('modalTitle').textContent = name;
-    document.getElementById('modalSub').textContent = 'Preparando descarga del archivo APK...';
-    document.getElementById('barFill').style.width = '0%';
-    document.getElementById('modalPct').textContent = '0%';
-    document.getElementById('modalClose').style.display = 'none';
-    document.getElementById('modal').classList.add('show');
-
-    let val = 0;
-    const timer = setInterval(() => {
-      val += Math.floor(Math.random() * 12) + 6;
-      if (val >= 100) val = 100;
-      document.getElementById('barFill').style.width = val + '%';
-      document.getElementById('modalPct').textContent = val + '%';
-      if (val === 100) {
-        clearInterval(timer);
-        document.getElementById('modalSub').textContent = '¡Listo! Si el APK está en la misma carpeta, se descargará automáticamente.';
-        document.getElementById('modalClose').style.display = 'inline-block';
-        if (file) {
-          const a = document.createElement('a');
-          a.href = file; a.download = file;
-          document.body.appendChild(a); a.click(); a.remove();
-        }
-      }
-    }, 160);
-  }
-
-  function closeModal() {
-    document.getElementById('modal').classList.remove('show');
-  }
-
-  document.getElementById('modal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
+  // Direct link buttons (anchors) handle navigation natively.
+  // Disabled buttons show "próximamente" state.
 </script>
 </body>
 </html>
