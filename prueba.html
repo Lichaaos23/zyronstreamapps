@@ -1,104 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reproductor IPTV</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player HLS</title>
 
-  <!-- HLS.js -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-  <style>
+<style>
     body{
-      margin:0;
-      background:#111;
-      font-family:Arial, sans-serif;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      color:white;
+        margin:0;
+        background:#111;
+        color:white;
+        font-family:Arial;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
     }
 
-    .player-container{
-      width:90%;
-      max-width:900px;
-      background:#1b1b1b;
-      border-radius:15px;
-      overflow:hidden;
-      box-shadow:0 0 20px rgba(0,0,0,0.5);
+    .player{
+        width:90%;
+        max-width:900px;
+        background:#1c1c1c;
+        border-radius:15px;
+        overflow:hidden;
     }
 
-    .header{
-      display:flex;
-      align-items:center;
-      gap:15px;
-      padding:15px;
-      background:#222;
+    .top{
+        display:flex;
+        align-items:center;
+        gap:15px;
+        padding:15px;
+        background:#222;
     }
 
-    .header img{
-      width:60px;
-      height:60px;
-      object-fit:contain;
-      background:white;
-      border-radius:10px;
-      padding:5px;
-    }
-
-    .header h1{
-      font-size:24px;
-      margin:0;
+    .top img{
+        width:60px;
+        background:white;
+        border-radius:10px;
+        padding:5px;
     }
 
     video{
-      width:100%;
-      height:auto;
-      background:black;
+        width:100%;
+        background:black;
     }
-  </style>
+
+    #status{
+        padding:10px;
+        color:#00ff99;
+        font-size:14px;
+    }
+</style>
 </head>
 <body>
 
-  <div class="player-container">
-    
-    <div class="header">
-      <img src="https://solparaguay.qvixprimary.com/assets/resources/img/channels/espn_660a27baf43344968326c178550f1f3f.png" alt="ESPN 1">
-      <h1>ESPN 1</h1>
+<div class="player">
+
+    <div class="top">
+        <img src="https://solparaguay.qvixprimary.com/assets/resources/img/channels/espn_660a27baf43344968326c178550f1f3f.png">
+        <h2>ESPN 1</h2>
     </div>
 
     <video id="video" controls autoplay></video>
 
-  </div>
+    <div id="status">Cargando canal...</div>
 
-  <script>
-    const video = document.getElementById('video');
+</div>
 
-    const videoSrc = 'http://45.188.229.33:8000/play/a1ac/index.m3u8?hls';
+<script>
 
-    if (Hls.isSupported()) {
+const video = document.getElementById("video");
+const statusText = document.getElementById("status");
 
-      const hls = new Hls();
+const stream = "http://45.188.229.33:8000/play/a1ac/index.m3u8?hls";
 
-      hls.loadSource(videoSrc);
+if(Hls.isSupported()){
 
-      hls.attachMedia(video);
+    const hls = new Hls({
+        enableWorker: true,
+        lowLatencyMode: true
+    });
 
-      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+    hls.loadSource(stream);
+    hls.attachMedia(video);
+
+    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        statusText.innerHTML = "Canal conectado";
         video.play();
-      });
+    });
 
-    } 
-    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    hls.on(Hls.Events.ERROR, function(event, data) {
+        console.log(data);
 
-      video.src = videoSrc;
+        statusText.innerHTML =
+            "Error: " + data.type + " / " + data.details;
+    });
 
-      video.addEventListener('loadedmetadata', function () {
+}else if(video.canPlayType('application/vnd.apple.mpegurl')){
+
+    video.src = stream;
+
+    video.addEventListener('loadedmetadata', function() {
         video.play();
-      });
+    });
 
-    }
-  </script>
+}else{
+    statusText.innerHTML = "Tu navegador no soporta HLS";
+}
+
+</script>
 
 </body>
 </html>
